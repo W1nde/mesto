@@ -1,0 +1,17 @@
+.popup__close {
+    display: flex;
+    background-image: url(../../../images/popup-close.svg);
+    background-size: cover;
+    background-color:transparent;
+    border: none;
+    width: 32px;
+    height: 32px;
+    margin-left: auto;
+    margin-right: calc(-32px - 8px);
+    margin-top: calc(-32px - 8px);
+    cursor: pointer;
+}
+
+.popup__close:hover {
+    opacity: 0.6;
+}
