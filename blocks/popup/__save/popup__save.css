@@ -2,7 +2,6 @@
     text-align: center;
     color: white;
     background-color: black;
-    margin-top: 48px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -17,6 +16,7 @@
     .popup__save {
         width: 238px;
         height: 46px;
+        margin-top: calc(45px - 30px);
     }
 }
 
@@ -24,5 +24,6 @@
     .popup__save {
         width: 358px;
         height: 50px;
+        margin-top: calc(48px - 30px);
     }
 }
