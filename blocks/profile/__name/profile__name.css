@@ -2,10 +2,17 @@
     font-family: Inter, Arial, Helvetica, sans-serif;
     font-style: normal;
     margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 294px;    
 }
 
 @media screen and (min-width: 320px)  {
     .profile__name {
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
         font-weight: 500;
         font-size: 27px;
         line-height: 33px;

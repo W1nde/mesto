@@ -4,7 +4,8 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
-    margin-left: 18px;
+    align-self: center;
+    padding: 0;
 }
 
 .profile__edit-button:hover {
@@ -22,5 +23,6 @@
     .profile__edit-button {
         width: 24px;
         height: 24px;
+        margin-left: 18px;
     }
 }
