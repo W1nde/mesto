@@ -2,7 +2,8 @@
     font-family: Inter, Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: 900;
-    margin-left: auto;
+    margin: 0;
+    margin-left: 38px;
     margin-right: auto;
     margin-top: 34px;
 }

@@ -10,7 +10,6 @@
 <body class="page">
   <header class="header">
     <img class="header__logo" src="./images/header-logo.svg" alt="Место">
-    <img class="header__line" src="./images/line.svg" alt="Черта">
   </header>
     <main>  
       <section class="profile">
@@ -20,65 +19,65 @@
             <h1 class="profile__name">Жак-Ив Кусто</h1> 
             <button type="button" class="profile__edit-button"></button>
           </div>  
-          <h2 class="profile__job">Исследователь океана</h2>
+          <p class="profile__job">Исследователь океана</p>
         </div>
         <button type="button" class="profile__add-button"></button>
       </section>
-      <div class="elements">
-        <figure class="element">
+      <section class="elements">
+        <article class="element">
           <img class="element__image" src="./images/element-karachaevsk.jpg" alt="Карачаевск">
           <div class="element__footer">
-            <p class="element__title">Карачаевск</p>
+            <h2 class="element__title">Карачаевск</h2>
             <button type="button" class="element__like-button"></button>
           </div>
-        </figure>   
-        <figure class="element">
+        </article>   
+        <article class="element">
           <img class="element__image" src="./images/element-elbrus.jpg" alt="Гора Эльбрус">
           <div class="element__footer">
-            <p class="element__title">Гора Эльбрус</p>
+            <h2 class="element__title">Гора Эльбрус</h2>
             <button type="button" class="element__like-button"></button>
           </div>
-        </figure>
-        <figure class="element">
+        </article>
+        <article class="element">
           <img class="element__image" src="./images/element-dombay.jpg" alt="Домбай">
           <div class="element__footer">
-            <p class="element__title">Домбай</p>
+            <h2 class="element__title">Домбай</h2>
             <button type="button" class="element__like-button"></button>
           </div>
-        </figure>
-        <figure class="element">
+        </article>
+        <article class="element">
           <img class="element__image" src="./images/element-elbrus.jpg" alt="Гора Эльбрус">
           <div class="element__footer">
-            <p class="element__title">Гора Эльбрус</p>
+            <h2 class="element__title">Гора Эльбрус</h2>
             <button type="button" class="element__like-button"></button>
           </div>
-        </figure>
-        <figure class="element">
+        </article>
+        <article class="element">
           <img class="element__image" src="./images/element-dombay.jpg" alt="Домбай">
           <div class="element__footer">
-            <p class="element__title">Домбай</p>
+            <h2 class="element__title">Домбай</h2>
             <button type="button" class="element__like-button"></button>
           </div>
-        </figure>
-        <figure class="element">
+        </article>
+        <article class="element">
           <img class="element__image" src="./images/element-karachaevsk.jpg" alt="Карачаево-Черческ">
             <div class="element__footer">
-              <p class="element__title">Карачаево-Черческ</p>
+              <h2 class="element__title">Карачаево-Черческ</h2>
               <button type="button" class="element__like-button"></button>
             </div>
-        </figure>
+        </article>
       </div>
     </main>
     <footer class="footer">
-      <h1 class="footer__title">&#169; 2021 Mesto Russia</h1>
+      <p class="footer__title">&#169; 2021 Mesto Russia</p>
     </footer>
     <div class="popup">
       <div class="popup__content">
-        <button type="reset" class="popup__close"></button>
+        <button type="button" class="popup__close"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
         <form class="popup__form" name="form">
-          <input class="popup__subtitle popup__subtitle_name" name="name" type="text" value="Жак-Ив Кусто" placeholder="Введите имя">
-          <input class="popup__subtitle popup__subtitle_job" name="job" type="text" value="Исследователь океана" placeholder="Введите род деятельности">
+          <input class="popup__subtitle popup__subtitle__type_name" name="name" type="text" value="Жак-Ив Кусто" placeholder="Введите имя">
+          <input class="popup__subtitle popup__subtitle__type_job" name="job" type="text" value="Исследователь океана" placeholder="Введите род деятельности">
           <button class="popup__save" type="submit">Сохранить</button>
         </form>
       </div>
