@@ -1,4 +1,4 @@
-.popup__subtitle {
+.popup__input {
     font-family: Inter, Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -6,20 +6,21 @@
     line-height: 17px;
     color: #000000;
     margin-bottom: 30px;
+    padding-bottom: 13px;
     border: none;
-    border-bottom: 1px solid  rgb(229,229,229);
+    border-bottom: 1px solid  rgb(0,0,0,0.2);
     margin-left: auto;
     margin-right: auto;
 }
 
 @media screen and (min-width: 320px) {
-    .popup__subtitle {
+    .popup__input {
         width: 238px;
     }
 }
 
 @media screen and (min-width: 768px) {
-    .popup__subtitle {
+    .popup__input {
         width: 358px;
     }
 }
