@@ -2,9 +2,20 @@
     display: flex;
     position: relative;
     flex-direction: column;
-    width: 430px;
     background-color: white;
     border-radius: 10px;
     margin: auto;
     vertical-align: middle;
+}
+
+@media screen and (min-width: 320px) {
+    .popup__content {
+        width: 292px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .popup__content {
+        width: 430px;
+    }
 }

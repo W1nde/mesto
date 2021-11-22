@@ -9,8 +9,8 @@ const userName = document.querySelector(".profile__name");
 const userJob = document.querySelector(".profile__job")
 
 function open() {
-    userName.textContent = nameForm.value;
-    userJob.textContent = jobForm.value;
+    nameForm.value = userName.textContent;
+    jobForm.value = userJob.textContent;
     popup.classList.add("popup_opened");
 }
 
