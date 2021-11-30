@@ -15,7 +15,7 @@
       <section class="profile">
         <img class="profile__avatar" src="./images/avatar.svg" alt="Аватар">
         <div class="profile__info">
-          <div class=profile__row>
+          <div class="profile__row">
             <h1 class="profile__name">Жак-Ив Кусто</h1> 
             <button type="button" class="profile__edit-button"></button>
           </div>  
@@ -26,58 +26,69 @@
       <section class="elements">
         <article class="element">
           <img class="element__image" src="./images/element-karachaevsk.jpg" alt="Карачаевск">
+          <button class="element__trash"> </button>
           <div class="element__footer">
             <h2 class="element__title">Карачаевск</h2>
             <button type="button" class="element__like-button"></button>
-          </div>
         </article>   
         <article class="element">
           <img class="element__image" src="./images/element-elbrus.jpg" alt="Гора Эльбрус">
+          <button class="element__trash"></button>
           <div class="element__footer">
             <h2 class="element__title">Гора Эльбрус</h2>
             <button type="button" class="element__like-button"></button>
-          </div>
         </article>
         <article class="element">
           <img class="element__image" src="./images/element-dombay.jpg" alt="Домбай">
+          <button class="element__trash"></button>
           <div class="element__footer">
             <h2 class="element__title">Домбай</h2>
             <button type="button" class="element__like-button"></button>
-          </div>
         </article>
         <article class="element">
           <img class="element__image" src="./images/element-elbrus.jpg" alt="Гора Эльбрус">
+          <button class="element__trash"></button>
           <div class="element__footer">
             <h2 class="element__title">Гора Эльбрус</h2>
             <button type="button" class="element__like-button"></button>
-          </div>
         </article>
         <article class="element">
           <img class="element__image" src="./images/element-dombay.jpg" alt="Домбай">
+          <button class="element__trash"></button>
           <div class="element__footer">
             <h2 class="element__title">Домбай</h2>
             <button type="button" class="element__like-button"></button>
-          </div>
         </article>
         <article class="element">
           <img class="element__image" src="./images/element-karachaevsk.jpg" alt="Карачаево-Черческ">
-            <div class="element__footer">
-              <h2 class="element__title">Карачаево-Черческ</h2>
-              <button type="button" class="element__like-button"></button>
-            </div>
+          <button class="element__trash"></button>
+          <div class="element__footer">
+          <h2 class="element__title">Карачаево-Черческ</h2>
+            <button type="button" class="element__like-button"></button>
         </article>
       </section>
     </main>
     <footer class="footer">
       <p class="footer__title">&#169; 2021 Mesto Russia</p>
     </footer>
-    <div class="popup">
+    <div class="popup popup__window_type_edit">
       <div class="popup__content">
         <button type="button" class="popup__close"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form" name="form">
-          <input class="popup__input popup__input_type_name" name="name" type="text" value="Жак-Ив Кусто" placeholder="Введите имя">
+        <form class="popup__form popup__form_type_edit" name="edit-form">
+          <input class="popup__input popup__input_type_name" name="name" type="text" value="Жак-Ив Кусто" placeholder="Имя">
           <input class="popup__input popup__input_type_job" name="job" type="text" value="Исследователь океана" placeholder="Введите род деятельности">
+          <button class="popup__save" type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup__window_type_add">
+      <div class="popup__content">
+        <button type="button" class="popup__close"></button>
+        <h2 class="popup__title">Новое место</h2>
+        <form class="popup__form popup__form_type_add" name="add-form">
+          <input class="popup__input popup__input_type_pic-name" name="picture" type="text" value="" placeholder="Название">
+          <input class="popup__input popup__input_type_url" name="url" type="text" value="" placeholder="Ссылка на картинку">
           <button class="popup__save" type="submit">Сохранить</button>
         </form>
       </div>
