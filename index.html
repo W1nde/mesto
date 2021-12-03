@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./pages/index.css">
   <title>Mesto</title>
+  <script src="./scripts/script.js" defer></script>
 </head>
 <body class="page">
   <header class="header">
@@ -24,54 +25,21 @@
         <button type="button" class="profile__add-button"></button>
       </section>
       <section class="elements">
-        <article class="element">
-          <img class="element__image" src="./images/element-karachaevsk.jpg" alt="Карачаевск">
-          <button class="element__trash"> </button>
-          <div class="element__footer">
-            <h2 class="element__title">Карачаевск</h2>
-            <button type="button" class="element__like-button"></button>
-        </article>   
-        <article class="element">
-          <img class="element__image" src="./images/element-elbrus.jpg" alt="Гора Эльбрус">
-          <button class="element__trash"></button>
-          <div class="element__footer">
-            <h2 class="element__title">Гора Эльбрус</h2>
-            <button type="button" class="element__like-button"></button>
-        </article>
-        <article class="element">
-          <img class="element__image" src="./images/element-dombay.jpg" alt="Домбай">
-          <button class="element__trash"></button>
-          <div class="element__footer">
-            <h2 class="element__title">Домбай</h2>
-            <button type="button" class="element__like-button"></button>
-        </article>
-        <article class="element">
-          <img class="element__image" src="./images/element-elbrus.jpg" alt="Гора Эльбрус">
-          <button class="element__trash"></button>
-          <div class="element__footer">
-            <h2 class="element__title">Гора Эльбрус</h2>
-            <button type="button" class="element__like-button"></button>
-        </article>
-        <article class="element">
-          <img class="element__image" src="./images/element-dombay.jpg" alt="Домбай">
-          <button class="element__trash"></button>
-          <div class="element__footer">
-            <h2 class="element__title">Домбай</h2>
-            <button type="button" class="element__like-button"></button>
-        </article>
-        <article class="element">
-          <img class="element__image" src="./images/element-karachaevsk.jpg" alt="Карачаево-Черческ">
-          <button class="element__trash"></button>
-          <div class="element__footer">
-          <h2 class="element__title">Карачаево-Черческ</h2>
-            <button type="button" class="element__like-button"></button>
-        </article>
+        <template id="cardTemplate">
+          <article class="element">
+            <img class="element__image" src="#" alt="">
+            <button class="element__trash" type="button"></button>
+            <div class="element__footer">
+              <h2 class="element__title"></h2>
+              <button class="element__like-button" type="button"></button>
+          </article>
+        </template>  
       </section>
     </main>
     <footer class="footer">
       <p class="footer__title">&#169; 2021 Mesto Russia</p>
     </footer>
-    <div class="popup popup__window_type_edit">
+    <div class="popup popup_type_edit">
       <div class="popup__content">
         <button type="button" class="popup__close"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
@@ -82,7 +50,7 @@
         </form>
       </div>
     </div>
-    <div class="popup popup__window_type_add">
+    <div class="popup popup_type_add">
       <div class="popup__content">
         <button type="button" class="popup__close"></button>
         <h2 class="popup__title">Новое место</h2>
@@ -93,8 +61,12 @@
         </form>
       </div>
     </div>
-
-    <script src="./scripts/script.js"></script>
+    <div class="popup popup_type_pic">
+      <div class="popup__pic-container">
+        <img class="popup__pic" src="#" alt="Изображение.">
+        <h2 class="popup__pic-title">картинка</h2>
+        <button class="popup__close" type="button"></button>
+      </div>
 </body>
 
 </html>
