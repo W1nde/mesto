@@ -109,10 +109,14 @@ function closePicPopup() {
   closePopup(popupPic);
 }
 
+function closePopupAddContent() {
+  closePopup(popupAddContent);
+}
+
 editProfileBtn.addEventListener("click", openPopupEditProfile);
 addContentBtn.addEventListener("click", openPopupAddContent);
 closeBtnPopupEditProfile.addEventListener('click', closePopupEditProfile);
-closeBtnPopupAddContent.addEventListener("click", closePopup(popupAddContent));
+closeBtnPopupAddContent.addEventListener("click", closePopupAddContent);
 closeBtnPopupPic.addEventListener("click", closePicPopup);
 formAdd.addEventListener("submit", formPlaceSubmitHandler);
 formEdit.addEventListener("submit", formProfileSubmitHandler);
