@@ -6,13 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./pages/index.css">
   <title>Mesto</title>
-  <script src="./scripts/script.js" defer></script>
+  <script src="./scripts/initial-cards.js" defer></script>
+  <script src="./scripts/index.js" defer></script>
 </head>
 <body class="page">
   <header class="header">
     <img class="header__logo" src="./images/header-logo.svg" alt="Место">
   </header>
-    <main>  
+    <main class="main">  
       <section class="profile">
         <img class="profile__avatar" src="./images/avatar.svg" alt="Аватар">
         <div class="profile__info">
@@ -45,8 +46,8 @@
         <button class="popup__close" type="button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
         <form class="popup__form popup__form_type_edit" name="edit-form">
-          <input class="popup__input popup__input_type_name" name="name" type="text" value="Жак-Ив Кусто" placeholder="Имя">
-          <input class="popup__input popup__input_type_job" name="job" type="text" value="Исследователь океана" placeholder="Введите род деятельности">
+          <input class="popup__input popup__input_type_name" name="name" type="text" value="Жак-Ив Кусто" placeholder="Имя" required>
+          <input class="popup__input popup__input_type_job" name="job" type="text" value="Исследователь океана" placeholder="Введите род деятельности" required>
           <button class="popup__save" type="submit">Сохранить</button>
         </form>
       </div>
@@ -56,8 +57,8 @@
         <button class="popup__close" type="button"></button>
         <h2 class="popup__title">Новое место</h2>
         <form class="popup__form popup__form_type_add" name="add-form">
-          <input class="popup__input popup__input_type_pic-name" name="picture" type="text" value="" placeholder="Название">
-          <input class="popup__input popup__input_type_url" name="url" type="text" value="" placeholder="Ссылка на картинку">
+          <input class="popup__input popup__input_type_pic-name" name="picture" type="text" value="" placeholder="Название" required>
+          <input class="popup__input popup__input_type_url" name="url" type="text" value="" placeholder="Ссылка на картинку" required>
           <button class="popup__save" type="submit">Сохранить</button>
         </form>
       </div>
