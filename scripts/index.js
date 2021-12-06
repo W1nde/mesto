@@ -66,6 +66,7 @@ function formPlaceSubmitHandler(evt) {
   const newElement = getElement(inputs);
   elements.prepend(newElement);
   closePopup(popupAddContent);
+  document.getElementById('addForm').reset();
 }
 
 render();
@@ -97,7 +98,6 @@ function openPopupEditProfile() {
 
 function openPopupAddContent() {
   openPopup(popupAddContent);
-  document.getElementById('addForm').reset();
 }
 
 function closePopupEditProfile() {
