@@ -90,15 +90,14 @@ function handleImgClick(event) {
 }
 
 function openPopupEditProfile() {
-  openPopup(popupEditProfile);
   inputName.value = userName.textContent;
   inputJob.value = userJob.textContent;
+  openPopup(popupEditProfile);
 }
 
 function openPopupAddContent() {
   openPopup(popupAddContent);
-  inputUrl.value = "";
-  inputPic.value = "";
+  document.getElementById('addForm').reset();
 }
 
 function closePopupEditProfile() {
