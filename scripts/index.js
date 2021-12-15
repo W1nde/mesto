@@ -107,7 +107,7 @@ function openPopupAddContent() {
   
   button.disabled = true;
 
-  popupAddContent.classList.add('.popup__save_disabled')
+  button.classList.add('popup__save_disabled')
   openPopup(popupAddContent);
 }
 
