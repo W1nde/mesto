@@ -10,15 +10,21 @@ const formEdit = document.querySelector(".popup__form_type_edit");
 const formAdd = document.querySelector(".popup__form_type_add");
 const inputPic = document.querySelector(".popup__input_type_pic-name");
 const inputUrl = document.querySelector(".popup__input_type_url");
+
 const closeBtnPopupEditProfile = popupEditProfile.querySelector(".popup__close");
 const closeBtnPopupAddContent = popupAddContent.querySelector(".popup__close");
 const closeBtnPopupPic = popupPic.querySelector(".popup__close");
+
 const likeButton = document.querySelector(".element__like-button");
 const addContentBtn = document.querySelector(".profile__add-button");
 const editProfileBtn = document.querySelector(".profile__edit-button");
 const popupImage = document.querySelector(".popup__pic");
 const popupPicTitle = document.querySelector(".popup__pic-title");
 const popup = document.querySelector(".popup");
+
+const popupOverlayEditProfile = popupEditProfile.querySelector(".popup__overlay");
+const popupOverlayAddContent = popupAddContent.querySelector(".popup__overlay")
+const popupOverlayPic = popupPic.querySelector(".popup__overlay")
 
 function getElement(el) {
   const cardTemplate = document.querySelector("#cardTemplate").content;
@@ -97,6 +103,11 @@ function openPopupEditProfile() {
 }
 
 function openPopupAddContent() {
+  const button = popupAddContent.querySelector('.popup__save')
+  
+  button.disabled = true;
+
+  popupAddContent.classList.add('.popup__save_disabled')
   openPopup(popupAddContent);
 }
 
@@ -119,3 +130,7 @@ closeBtnPopupAddContent.addEventListener("click", closePopupAddContent);
 closeBtnPopupPic.addEventListener("click", closePicPopup);
 formAdd.addEventListener("submit", formPlaceSubmitHandler);
 formEdit.addEventListener("submit", formProfileSubmitHandler);
+
+popupOverlayEditProfile.addEventListener('click', closePopupEditProfile);
+popupOverlayAddContent.addEventListener('click', closePopupAddContent);
+popupOverlayPic.addEventListener('click', closePicPopup);
