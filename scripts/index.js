@@ -48,12 +48,23 @@ function render() {
   elements.append(...htmlCards);
 }
 
+function closeByEsc(evt, popup) {
+  if (evt.key === "Escape") {
+    closePopup(popup)
+  }
+}
+
 function openPopup(popup) {
   popup.classList.add("popup_opened");
+
+  document.addEventListener("keydown",(evt) => {
+    closeByEsc(evt, popup);
+  });
 }
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+  popup.removeEventListener("keydown", closeByEsc);
 }
 
 function formProfileSubmitHandler(evt) {
@@ -97,8 +108,10 @@ function handleImgClick(event) {
 }
 
 function openPopupEditProfile() {
-  inputName.value = userName.textContent;
-  inputJob.value = userJob.textContent;
+  if (inputName.value === "" && inputJob.value === "") {
+    inputName.value = userName.textContent;
+    inputJob.value = userJob.textContent;
+  }
   openPopup(popupEditProfile);
 }
 
