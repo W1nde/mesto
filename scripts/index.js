@@ -48,10 +48,11 @@ function render() {
   elements.append(...htmlCards);
 }
 
-function closeByEsc(evt, popup) {
-  if (evt.key === "Escape") {
-    closePopup(popup)
-  }
+function closeByEsc(event) {
+  if (event.key === "Escape") {
+    const openedPopup = document.querySelector(".popup_opened");
+    closePopup(openedPopup)
+   }
 }
 
 function openPopup(popup) {
@@ -62,6 +63,7 @@ function openPopup(popup) {
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+
   document.removeEventListener("keydown", closeByEsc);
 }
 
