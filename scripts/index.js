@@ -57,9 +57,7 @@ function closeByEsc(evt, popup) {
 function openPopup(popup) {
   popup.classList.add("popup_opened");
 
-  document.addEventListener("keydown",(evt) => {
-    closeByEsc(evt, popup);
-  });
+  document.addEventListener("keydown", closeByEsc);
 }
 
 function closePopup(popup) {
