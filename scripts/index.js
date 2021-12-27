@@ -76,10 +76,13 @@ function formProfileSubmitHandler(evt) {
 
 function formPlaceSubmitHandler(evt) {
   evt.preventDefault();
-  const inputs = {
+ /* const inputs = {
     name: inputPic.value,
     link: inputUrl.value,
-  };
+  }; */
+
+const inputs = new Card(inputPic.value, inputUrl.value)
+
   const newElement = getElement(inputs);
   elements.prepend(newElement);
   closePopup(popupAddContent);
@@ -147,3 +150,5 @@ formEdit.addEventListener("submit", formProfileSubmitHandler);
 popupOverlayEditProfile.addEventListener('click', closePopupEditProfile);
 popupOverlayAddContent.addEventListener('click', closePopupAddContent);
 popupOverlayPic.addEventListener('click', closePicPopup);
+
+import {Card} from './Card.js'
