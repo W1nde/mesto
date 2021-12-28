@@ -1,4 +1,4 @@
-class EnableValidation { 
+class FormValidator { 
 
 	showError (form, input, errorMessageText, errorMessageClass, inputErrorClass) {
 		const errorMessage = form.querySelector(`#${input.id}-error`);
@@ -72,4 +72,5 @@ class EnableValidation {
 		});
 	}
 }
-new EnableValidation()
+
+export {FormValidator};

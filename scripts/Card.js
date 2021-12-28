@@ -60,4 +60,4 @@ new Card('Холмогорский район', 'https://pictures.s3.yandex.net/
 new Card('Байкал', 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg');
 
 export {Card};
-import {openPopup, popupPic} from "./index.js";
+import {openPopup, popupPic} from "./utils.js";

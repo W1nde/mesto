@@ -5,7 +5,7 @@ const userJob = document.querySelector(".profile__job");
 
 const popupEditProfile = document.querySelector(".popup_type_edit");
 const popupAddContent = document.querySelector(".popup_type_add");
-const popupPic = document.querySelector(".popup_type_pic");
+
 const formEdit = document.querySelector(".popup__form_type_edit");
 const formAdd = document.querySelector(".popup__form_type_add");
 const inputPic = document.querySelector(".popup__input_type_pic-name");
@@ -27,12 +27,6 @@ function closeByEsc(event) {
     const openedPopup = document.querySelector(".popup_opened");
     closePopup(openedPopup)
    }
-}
-
-function openPopup(popup) {
-  popup.classList.add("popup_opened");
-
-  document.addEventListener("keydown", closeByEsc);
 }
 
 function closePopup(popup) {
@@ -92,9 +86,12 @@ closeBtnPopupPic.addEventListener("click", closePicPopup);
 formAdd.addEventListener("submit", formPlaceSubmitHandler);
 formEdit.addEventListener("submit", formProfileSubmitHandler);
 
-popupOverlayEditProfile.addEventListener('click', closePopupEditProfile);
-popupOverlayAddContent.addEventListener('click', closePopupAddContent);
-popupOverlayPic.addEventListener('click', closePicPopup);
+popupOverlayEditProfile.addEventListener('mousedown', closePopupEditProfile);
+popupOverlayAddContent.addEventListener('mousedown', closePopupAddContent);
+popupOverlayPic.addEventListener('mousedown', closePicPopup);
+
+new FormValidator;
 
 import {Card} from './Card.js'
-export {openPopup, popupPic}
+import { FormValidator } from './FormValidator.js';
+import {openPopup, popupPic} from './utils.js'
