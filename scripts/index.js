@@ -47,6 +47,7 @@ function formPlaceSubmitHandler(evt) {
   new Card(inputPic.value, inputUrl.value)
   closePopup(popupAddContent);
   document.getElementById('addForm').reset();
+
 }
 
 function openPopupEditProfile() {
@@ -87,6 +88,7 @@ popupOverlayAddContent.addEventListener('mousedown', closePopupAddContent);
 popupOverlayPic.addEventListener('mousedown', closePicPopup);
 
 new FormValidator;
+
 
 import {Card} from './Card.js'
 import { FormValidator } from './FormValidator.js';
