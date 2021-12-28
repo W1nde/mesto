@@ -1,5 +1,10 @@
 class FormValidator { 
 
+
+	toggleButtonError() {
+		button.disabled = true;
+	}
+
 	showError (form, input, errorMessageText, errorMessageClass, inputErrorClass) {
 		const errorMessage = form.querySelector(`#${input.id}-error`);
 		errorMessage.textContent = errorMessageText;

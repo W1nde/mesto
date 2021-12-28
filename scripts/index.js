@@ -50,17 +50,13 @@ function formPlaceSubmitHandler(evt) {
 }
 
 function openPopupEditProfile() {
-  if (inputName.value === "" && inputJob.value === "") {
-    inputName.value = userName.textContent;
-    inputJob.value = userJob.textContent;
-  }
+  inputName.value = userName.textContent;
+  inputJob.value = userJob.textContent;
   openPopup(popupEditProfile);
 }
 
 function openPopupAddContent() {
   const button = popupAddContent.querySelector('.popup__save')
-  
-  button.disabled = true;
 
   button.classList.add('popup__save_disabled')
   openPopup(popupAddContent);
