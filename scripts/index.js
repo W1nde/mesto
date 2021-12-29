@@ -91,5 +91,5 @@ new FormValidator;
 
 
 import {Card} from './Card.js'
-import { FormValidator } from './FormValidator.js';
+import {FormValidator} from './FormValidator.js';
 import {openPopup, popupPic} from './utils.js'

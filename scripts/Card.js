@@ -13,7 +13,17 @@ class Card {
         likeButton.addEventListener("click", this.handleLike);
         cardPicture.addEventListener("click", this.handleImgClick);
         return cardElement;
-      }      
+    } 
+    
+    _getTemplate() {
+        const cardElement = document
+          .querySelector(this._cardSelector)
+          .content
+          .querySelector('.element')
+          .cloneNode(true);
+    
+        return cardElement;
+    } 
 
     handleDelete(event) {
         const eventTarget = event.target;
