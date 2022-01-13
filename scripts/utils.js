@@ -13,4 +13,10 @@ function closeByEsc(event) {
      }
 }
 
-export {popupPic, openPopup, closeByEsc};
+function closePopup(popup) {
+    popup.classList.remove("popup_opened");
+  
+    document.removeEventListener("keydown", closeByEsc);
+  }
+
+export {popupPic, openPopup, closePopup};

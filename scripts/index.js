@@ -24,12 +24,6 @@ const popupOverlayPic = popupPic.querySelector(".popup__overlay")
 
 const cardsContainer = document.querySelector(".elements")
 
-function closePopup(popup) {
-  popup.classList.remove("popup_opened");
-
-  document.removeEventListener("keydown", closeByEsc);
-}
-
 function formProfileSubmitHandler(evt) {
   evt.preventDefault();
   userName.textContent = inputName.value;
@@ -41,7 +35,7 @@ function formPlaceSubmitHandler(evt) {
   evt.preventDefault();
   const object = {
     name: inputPic.value,
-    link: inputUrl.value
+    link: inputUrl.value,
   }
   createCard(object)
   closePopup(popupAddContent);
@@ -76,7 +70,7 @@ function closePopupAddContent() {
 
 function createCard(object) {
   const card = new Card(object, '#cardTemplate', openPopup);
-  cardsContainer.append(card.getElement());
+  cardsContainer.prepend(card.getElement());
 } 
 
 initialCards.forEach(item => {
@@ -100,5 +94,5 @@ new FormValidator;
 
 import {Card} from './Card.js'
 import {FormValidator} from './FormValidator.js';
-import {openPopup, popupPic, closeByEsc} from './utils.js'
+import {openPopup, popupPic, closePopup} from './utils.js'
 import {initialCards} from './initial-cards.js';
