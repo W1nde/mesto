@@ -1,5 +1,12 @@
 class Card {
 
+    constructor(name, link) {
+        this.name = name;
+        this.link = link;
+
+        elements.prepend(this.getElement());
+    }
+
     getElement() {
         const cardTemplate = document.querySelector("#cardTemplate").content;
         const cardElement = cardTemplate.querySelector(".element").cloneNode(true);
@@ -44,13 +51,6 @@ class Card {
         popupImage.alt = element.textContent;
         openPopup(popupPic);        
       }
-      
-    constructor(name, link) {
-        this.name = name;
-        this.link = link;
-
-        elements.prepend(this.getElement());
-    }
 }
 
 const elements = document.querySelector(".elements");

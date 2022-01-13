@@ -1,5 +1,16 @@
 class FormValidator { 
 
+	constructor() {
+
+		this.enableValidation({
+    		formSelector: '.popup__form',
+    		inputSelector: '.popup__input',
+    		submitButtonSelector: '.popup__save',
+    		inactiveButtonClass: 'popup__save_disabled',
+    		inputErrorClass: 'popup__input_type_error',
+    		errorClass: 'error',
+		});
+	}
 
 	toggleButtonError() {
 		button.disabled = true;
@@ -62,18 +73,6 @@ class FormValidator {
 			});
 
 			this.setInputListeners(form, rest);
-		});
-	}
-
-	constructor() {
-
-		this.enableValidation({
-    		formSelector: '.popup__form',
-    		inputSelector: '.popup__input',
-    		submitButtonSelector: '.popup__save',
-    		inactiveButtonClass: 'popup__save_disabled',
-    		inputErrorClass: 'popup__input_type_error',
-    		errorClass: 'error',
 		});
 	}
 }
