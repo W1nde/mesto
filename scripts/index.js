@@ -89,8 +89,20 @@ popupOverlayEditProfile.addEventListener('mousedown', closePopupEditProfile);
 popupOverlayAddContent.addEventListener('mousedown', closePopupAddContent);
 popupOverlayPic.addEventListener('mousedown', closePicPopup);
 
-new FormValidator;
 
+const formSelectors = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__save',
+  inactiveButtonClass: 'popup__save_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'error',
+};
+const editFormValidation = new FormValidator(formEdit);
+editFormValidation.enableValidation(formSelectors);
+
+const AddFormValidation = new FormValidator(formAdd);
+AddFormValidation.enableValidation(formSelectors);
 
 import {Card} from './Card.js'
 import {FormValidator} from './FormValidator.js';
