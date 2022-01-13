@@ -6,4 +6,11 @@ function openPopup(popup) {
     document.addEventListener("keydown", closeByEsc);
 }
 
-export {popupPic, openPopup};
+function closeByEsc(event) {
+    if (event.key === "Escape") {
+      const openedPopup = document.querySelector(".popup_opened");
+      closePopup(openedPopup)
+     }
+}
+
+export {popupPic, openPopup, closeByEsc};

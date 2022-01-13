@@ -22,12 +22,7 @@ const popupOverlayEditProfile = popupEditProfile.querySelector(".popup__overlay"
 const popupOverlayAddContent = popupAddContent.querySelector(".popup__overlay")
 const popupOverlayPic = popupPic.querySelector(".popup__overlay")
 
-function closeByEsc(event) {
-  if (event.key === "Escape") {
-    const openedPopup = document.querySelector(".popup_opened");
-    closePopup(openedPopup)
-   }
-}
+const cardsContainer = document.querySelector(".elements")
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
@@ -44,7 +39,11 @@ function formProfileSubmitHandler(evt) {
 
 function formPlaceSubmitHandler(evt) {
   evt.preventDefault();
-  new Card(inputPic.value, inputUrl.value)
+  const object = {
+    name: inputPic.value,
+    link: inputUrl.value
+  }
+  createCard(object)
   closePopup(popupAddContent);
   document.getElementById('addForm').reset();
 
@@ -75,6 +74,15 @@ function closePopupAddContent() {
   closePopup(popupAddContent);
 }
 
+function createCard(object) {
+  const card = new Card(object, '#cardTemplate', openPopup);
+  cardsContainer.append(card.getElement());
+} 
+
+initialCards.forEach(item => {
+  const card = createCard(item)
+})
+
 editProfileBtn.addEventListener("click", openPopupEditProfile);
 addContentBtn.addEventListener("click", openPopupAddContent);
 closeBtnPopupEditProfile.addEventListener('click', closePopupEditProfile);
@@ -92,4 +100,5 @@ new FormValidator;
 
 import {Card} from './Card.js'
 import {FormValidator} from './FormValidator.js';
-import {openPopup, popupPic} from './utils.js'
+import {openPopup, popupPic, closeByEsc} from './utils.js'
+import {initialCards} from './initial-cards.js';

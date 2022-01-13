@@ -1,19 +1,19 @@
 class Card {
 
-    constructor(name, link) {
-        this.name = name;
-        this.link = link;
-
-        elements.prepend(this.getElement());
+    constructor(CardObjects, cardSelector, openPopupHandler) {
+        this._name = CardObjects.name;
+        this._link = CardObjects.link;
+        this._cardSelector = cardSelector;
+        this._openPopupHandler = openPopupHandler;
     }
 
     getElement() {
         const cardTemplate = document.querySelector("#cardTemplate").content;
-        const cardElement = cardTemplate.querySelector(".element").cloneNode(true);
+        const cardElement = this._getTemplate()
         const cardPicture = cardElement.querySelector(".element__image");
-        cardElement.querySelector(".element__title").textContent = this.name;
-        cardPicture.src = this.link;
-        cardPicture.alt = this.name;
+        cardElement.querySelector(".element__title").textContent = this._name;
+        cardPicture.src = this._link;
+        cardPicture.alt = this._name;
         const delButton = cardElement.querySelector(".element__trash");
         delButton.addEventListener("click", this.handleDelete);
         const likeButton = cardElement.querySelector(".element__like-button");
@@ -50,24 +50,11 @@ class Card {
         popupImage.src = element.querySelector(".element__image").src;
         popupImage.alt = element.textContent;
         openPopup(popupPic);        
-      }
+    }
 }
 
 const elements = document.querySelector(".elements");
 const popupImage = document.querySelector(".popup__pic");
 const popupPicTitle = document.querySelector(".popup__pic-title");
-
-new Card('Архыз', 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg');
-
-new Card('Челябинская область', 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg');
-
-new Card('Иваново', 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg');
-
-new Card('Камчатка', 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg');
-
-new Card('Холмогорский район', 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg');
-
-new Card('Байкал', 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg');
-
 export {Card};
-import {openPopup, popupPic} from "./utils.js";
+import {popupPic, openPopup} from "./utils.js";
