@@ -1,25 +1,25 @@
-class Card {
+import {popupPic, openPopup} from "./utils.js";
 
-    constructor(CardObjects, cardSelector, openPopupHandler) {
-        this._name = CardObjects.name;
-        this._link = CardObjects.link;
+class Card {
+    constructor(cardObjects, cardSelector) {
+        this._name = cardObjects.name;
+        this._link = cardObjects.link;
         this._cardSelector = cardSelector;
-        this._openPopupHandler = openPopupHandler;
     }
 
     getElement() {
-        const cardTemplate = document.querySelector("#cardTemplate").content;
-        const cardElement = this._getTemplate()
-        const cardPicture = cardElement.querySelector(".element__image");
-        cardElement.querySelector(".element__title").textContent = this._name;
+        this._element = this._getTemplate()
+        const cardPicture = this._element.querySelector(".element__image");
+        this._element.querySelector(".element__title").textContent = this._name;
         cardPicture.src = this._link;
         cardPicture.alt = this._name;
-        const delButton = cardElement.querySelector(".element__trash");
-        delButton.addEventListener("click", this.handleDelete);
-        const likeButton = cardElement.querySelector(".element__like-button");
+        const delButton = this._element.querySelector(".element__trash");
+        
+        const likeButton = this._element.querySelector(".element__like-button");
         likeButton.addEventListener("click", this.handleLike);
         cardPicture.addEventListener("click", this.handleImgClick);
-        return cardElement;
+        delButton.addEventListener("click", this.handleDelete);
+        return this._element;
     } 
     
     _getTemplate() {
@@ -32,11 +32,9 @@ class Card {
         return cardElement;
     } 
 
-    handleDelete(event) {
-        const eventTarget = event.target;
-        const element = eventTarget.closest(".element");
-        element.remove();
-    }      
+    handleDelete = () => {
+        this._element.remove();
+      }
 
     handleLike(event) {
         const eventTarget = event.target;
@@ -53,8 +51,6 @@ class Card {
     }
 }
 
-const elements = document.querySelector(".elements");
 const popupImage = document.querySelector(".popup__pic");
 const popupPicTitle = document.querySelector(".popup__pic-title");
 export {Card};
-import {popupPic, openPopup} from "./utils.js";

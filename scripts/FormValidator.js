@@ -7,10 +7,6 @@ class FormValidator {
 		this._submitButton = this._form.querySelector('.popup__save')
 	}
 
-	toggleButtonError() {
-		button.disabled = true;
-	}
-
 	showError (input, errorMessageText, errorMessageClass, inputErrorClass) {
 		const errorMessage = this._form.querySelector(`#${input.id}-error`);
 		errorMessage.textContent = errorMessageText;

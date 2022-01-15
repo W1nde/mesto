@@ -1,3 +1,8 @@
+import {Card} from './Card.js'
+import {FormValidator} from './FormValidator.js';
+import {openPopup, popupPic, closePopup} from './utils.js'
+import {initialCards} from './initial-cards.js';
+
 const inputName = document.querySelector(".popup__input_type_name");
 const inputJob = document.querySelector(".popup__input_type_job");
 const userName = document.querySelector(".profile__name");
@@ -39,7 +44,7 @@ function formPlaceSubmitHandler(evt) {
   }
   createCard(object)
   closePopup(popupAddContent);
-  document.getElementById('addForm').reset();
+  document.getElementById('formAdd').reset();
 
 }
 
@@ -101,10 +106,5 @@ const formSelectors = {
 const editFormValidation = new FormValidator(formEdit);
 editFormValidation.enableValidation(formSelectors);
 
-const AddFormValidation = new FormValidator(formAdd);
-AddFormValidation.enableValidation(formSelectors);
-
-import {Card} from './Card.js'
-import {FormValidator} from './FormValidator.js';
-import {openPopup, popupPic, closePopup} from './utils.js'
-import {initialCards} from './initial-cards.js';
+const addFormValidation = new FormValidator(formAdd);
+addFormValidation.enableValidation(formSelectors);
