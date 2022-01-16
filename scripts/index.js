@@ -44,7 +44,7 @@ function formPlaceSubmitHandler(evt) {
   }
   createCard(object)
   closePopup(popupAddContent);
-  document.getElementById('formAdd').reset();
+  formAdd.reset()
 
 }
 
