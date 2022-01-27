@@ -1,12 +1,13 @@
-import {popupPic, openPopup} from "./utils.js";
+import {popupPic, openPopup} from "../utils/utils.js";
 
 class Card {
-    constructor(cardObjects, cardSelector) {
+    constructor(cardObjects, cardSelector, handleCardClick) {
         this._name = cardObjects.name;
         this._link = cardObjects.link;
         this._cardSelector = cardSelector;
+        this.handleCardClick = handleCardClick
     }
-
+ 
     getElement() {
         this._element = this._getTemplate()
         const cardPicture = this._element.querySelector(".element__image");
@@ -17,7 +18,7 @@ class Card {
         
         const likeButton = this._element.querySelector(".element__like-button");
         likeButton.addEventListener("click", this.handleLike);
-        cardPicture.addEventListener("click", this.handleImgClick);
+        cardPicture.addEventListener("click", this.handleCardClick);
         delButton.addEventListener("click", this.handleDelete);
         return this._element;
     } 
@@ -53,4 +54,5 @@ class Card {
 
 const popupImage = document.querySelector(".popup__pic");
 const popupPicTitle = document.querySelector(".popup__pic-title");
+
 export {Card};
