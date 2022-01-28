@@ -1,7 +1,9 @@
-import {popupPic, openPopup} from "../utils/utils.js";
+import { popupPic, openPopup, closePopup } from "../utils/utils.js";
+import { popupImage, popupPicTitle } from '../utils/constants.js'
 
 class Card {
     constructor(cardObjects, cardSelector, handleCardClick) {
+        this.close
         this._name = cardObjects.name;
         this._link = cardObjects.link;
         this._cardSelector = cardSelector;
@@ -33,6 +35,21 @@ class Card {
         return cardElement;
     } 
 
+    close() {
+        //this._cardSelector.classList.remove("popup_opened"); 
+        closePopup(popupPic)
+        
+        
+  
+        document.removeEventListener("keydown", this._handleEscClose);
+    }    
+    
+    _handleEscClose(evt) {
+        if (evt.key === "Escape") {
+        this.close()
+        }
+    }
+    
     handleDelete = () => {
         this._element.remove();
       }
@@ -42,17 +59,15 @@ class Card {
         eventTarget.classList.toggle("element__like-button_active");
     }
 
-    handleImgClick(event) {
+    handleImgClick(event) { 
         const eventTarget = event.target;
         const element = eventTarget.closest(".element");
         popupPicTitle.textContent = element.textContent;
         popupImage.src = element.querySelector(".element__image").src;
         popupImage.alt = element.textContent;
+        document.addEventListener('keydown' ,this._handleEscClose)
         openPopup(popupPic);        
     }
 }
-
-const popupImage = document.querySelector(".popup__pic");
-const popupPicTitle = document.querySelector(".popup__pic-title");
 
 export {Card};
