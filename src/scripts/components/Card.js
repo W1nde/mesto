@@ -1,6 +1,3 @@
-import { popupPic, openPopup, closePopup } from "../utils/utils.js";
-import { popupImage, popupPicTitle } from '../utils/constants.js'
-
 class Card {
     constructor(cardObjects, cardSelector, handleCardClick) {
         this.close

@@ -17,6 +17,8 @@ const inputUrl = document.querySelector('.popup__input_type_url');
 const addContentBtn = document.querySelector(".profile__add-button");
 const editProfileBtn = document.querySelector(".profile__edit-button");
 
+const popupPic = document.querySelector(".popup_type_pic");
+
 export {popupImage, popupPicTitle,
     inputName,
     inputJob,
@@ -29,5 +31,6 @@ export {popupImage, popupPicTitle,
     inputPic,
     inputUrl,
     addContentBtn,
-    editProfileBtn
+    editProfileBtn,
+    popupPic,
 }
