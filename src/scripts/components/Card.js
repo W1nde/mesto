@@ -34,39 +34,14 @@ class Card {
     
         return cardElement;
     } 
-
-    close() {
-        //this._cardSelector.classList.remove("popup_opened"); 
-        closePopup(popupPic)
-        
-        
-  
-        document.removeEventListener("keydown", this._handleEscClose);
-    }    
-    
-    _handleEscClose(evt) {
-        if (evt.key === "Escape") {
-        this.close()
-        }
-    }
     
     handleDelete = () => {
         this._element.remove();
-      }
+    }
 
     handleLike(event) {
         const eventTarget = event.target;
         eventTarget.classList.toggle("element__like-button_active");
-    }
-
-    handleImgClick(event) { 
-        const eventTarget = event.target;
-        const element = eventTarget.closest(".element");
-        popupPicTitle.textContent = element.textContent;
-        popupImage.src = element.querySelector(".element__image").src;
-        popupImage.alt = element.textContent;
-        document.addEventListener('keydown' ,this._handleEscClose)
-        openPopup(popupPic);        
     }
 }
 

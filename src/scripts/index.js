@@ -1,26 +1,8 @@
 import '../styles/index.css';
 
-import addButtonImage from '../images/add-button.svg';
-import avatarImage from '../images/avatar.svg';
-import editButtonImage from '../images/edit-button.svg';
-import elementDombayImage from '../images/element-dombay.jpg';
-import elementElbrusImage from '../images/element-elbrus.jpg';
-import elementKarachaevskImage from '../images/element-karachaevsk.jpg';
-import footerLogoImage from '../images/footer-logo.svg';
-import headerLogoImage from '../images/header-logo.svg';
-import likeButtonImage from '../images/like-button.svg';
-import likeButtonActiveImage from '../images/like-button-active.svg';
-import popupCloseImage from '../images/popup-close.svg';
-import trashImage from '../images/trash.svg';
-
-import interBlackFont from '../vendor/fonts/InterWeb/Inter-Black.woff2';
-import interBoldFont from '../vendor/fonts/InterWeb/Inter-Bold.woff2';
-import interMediumFont from '../vendor/fonts/InterWeb/Inter-Medium.woff2';
-import interRegularFont from '../vendor/fonts/InterWeb/Inter-Regular.woff2';
-
 import { Card } from './components/Card.js'
 import { FormValidator } from './components/FormValidator.js';
-import { openPopup, popupPic, closePopup } from './utils/utils.js'
+import { openPopup, popupPic, closePopup, formSelectors } from './utils/utils.js'
 import { initialCards } from './utils/initial-cards.js';
 import { Section } from './components/Section.js';
 import { UserInfo } from './components/UserInfo.js';
@@ -65,6 +47,7 @@ cardsContainer
 cardList.renderItems();
 
 const bigImage = new PopupWithImage(popupPic);
+bigImage.setEventListeners();
 
 const userInfo = new UserInfo({
   profileName: userName,
@@ -86,7 +69,7 @@ const popupAdd = new PopupWithForm({popupSelector: popupAddContent,
   popupAdd.close();
 }
 });
-popupProfile.setEventListeners();
+popupAdd.setEventListeners();
 
 
 function formProfileSubmitHandler(evt) {
@@ -116,7 +99,10 @@ function openPopupEditProfile() {
 }
 
 function openPopupAddContent() {
+  const button = popupAddContent.querySelector('.popup__save') 
+
   openPopup(popupAddContent);
+  button.classList.add('popup__save_disabled') 
 }
 
 function closePopupEditProfile() {
@@ -131,14 +117,14 @@ function closePopupAddContent() {
   closePopup(popupAddContent);
 }
 
-function createCard(object) {
-  const card = new Card(object, '#cardTemplate', () => {
-    bigImage.open(card._name, card._link)
-    document.addEventListener('keydown' , bigImage.close)
 
-  });
-  return card.getElement();
-}
+function createCard(object) { 
+  const card = new Card(object, '#cardTemplate', () => { 
+    bigImage.open(object.name, object.link) 
+   // document.addEventListener('keydown' , bigImage.close) 
+  }); 
+  return card.getElement(); 
+} 
 
 editProfileBtn.addEventListener("click", openPopupEditProfile);
 addContentBtn.addEventListener("click", openPopupAddContent);
@@ -151,16 +137,6 @@ formEdit.addEventListener("submit", formProfileSubmitHandler);
 popupOverlayEditProfile.addEventListener('mousedown', closePopupEditProfile);
 popupOverlayAddContent.addEventListener('mousedown', closePopupAddContent);
 popupOverlayPic.addEventListener('mousedown', closePicPopup);
-
-
-const formSelectors = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__save',
-  inactiveButtonClass: 'popup__save_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'error',
-};
 
 const editFormValidation = new FormValidator(formEdit);
 editFormValidation.enableValidation(formSelectors);
