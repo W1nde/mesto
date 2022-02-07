@@ -9,16 +9,16 @@ class Card {
  
     getElement() {
         this._element = this._getTemplate()
-        const cardPicture = this._element.querySelector(".element__image");
-        this._element.querySelector(".element__title").textContent = this._name;
+        const cardPicture = this._element.querySelector('.element__image');
+        this._element.querySelector('.element__title').textContent = this._name;
         cardPicture.src = this._link;
         cardPicture.alt = this._name;
-        const delButton = this._element.querySelector(".element__trash");
+        const delButton = this._element.querySelector('.element__trash');
         
-        const likeButton = this._element.querySelector(".element__like-button");
-        likeButton.addEventListener("click", this.handleLike);
-        cardPicture.addEventListener("click", this.handleCardClick);
-        delButton.addEventListener("click", this.handleDelete);
+        const likeButton = this._element.querySelector('.element__like-button');
+        likeButton.addEventListener('click', this.handleLike);
+        cardPicture.addEventListener('click', this.handleCardClick);
+        delButton.addEventListener('click', this.handleDelete);
         return this._element;
     } 
     
@@ -38,7 +38,7 @@ class Card {
 
     handleLike(event) {
         const eventTarget = event.target;
-        eventTarget.classList.toggle("element__like-button_active");
+        eventTarget.classList.toggle('element__like-button_active');
     }
 }
 

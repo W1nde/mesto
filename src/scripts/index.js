@@ -1,4 +1,4 @@
-import '../styles/index.css';
+// import '../styles/index.css';
 
 import { Card } from './components/Card.js'
 import { FormValidator } from './components/FormValidator.js';
@@ -6,6 +6,7 @@ import { popupPic, formSelectors } from './utils/utils.js'
 import { initialCards } from './utils/initial-cards.js';
 import { Section } from './components/Section.js';
 import { UserInfo } from './components/UserInfo.js';
+import {Popup} from './components/Popup.js'
 import { PopupWithImage } from './components/PopupWithImage.js';
 import { PopupWithForm } from './components/PopupWithForm.js';
 
@@ -23,6 +24,16 @@ import {
   addContentBtn,
   editProfileBtn
 } from './utils/constants.js'
+
+/*
+const api = new Api ( {address, token}: {
+  address: '',
+  token: ''
+})
+*/
+
+
+
 
 const cardsContainer = document.querySelector(".elements");
 
@@ -61,6 +72,11 @@ const popupAdd = new PopupWithForm({popupSelector: popupAddContent,
 });
 popupAdd.setEventListeners();
 
+/*
+const popupDelete = new PopupWithForm({popupSelector: popupDeletePic,
+
+})
+*/
 
 function formProfileSubmitHandler(evt) {
   evt.preventDefault();
@@ -89,8 +105,14 @@ function createCard(object) {
   return card.getElement(); 
 } 
 
+/*
+const delButton = document.querySelector('.element__trash')
+const popupDeletePic = document.querySelector('.popup popup_type_pic-delete')
+*/
+
 editProfileBtn.addEventListener('click', () => {popupProfile.open()});
 addContentBtn.addEventListener('click', () => {popupAdd.open()})
+// delButton.addEventListener('click', () => {popupDelete.open()})
 
 formAdd.addEventListener('submit', formPlaceSubmitHandler);
 formEdit.addEventListener('submit', formProfileSubmitHandler);
