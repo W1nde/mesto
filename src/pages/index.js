@@ -1,15 +1,13 @@
 // import '../styles/index.css';
 
-import { Card } from './components/Card.js'
-import { FormValidator } from './components/FormValidator.js';
-import { popupPic, formSelectors } from './utils/utils.js'
-import { initialCards } from './utils/initial-cards.js';
-import { Section } from './components/Section.js';
-import { UserInfo } from './components/UserInfo.js';
-import {Popup} from './components/Popup.js'
-import { PopupWithImage } from './components/PopupWithImage.js';
-import { PopupWithForm } from './components/PopupWithForm.js';
-import {Api} from './components/Api.js';
+import { Card } from '../scripts/components/Card.js'
+import { FormValidator } from '../scripts/components/FormValidator.js';
+import { popupPic, formSelectors } from '../scripts/utils/utils.js'
+import { Section } from '../scripts/components/Section.js';
+import { UserInfo } from '../scripts/components/UserInfo.js';
+import { PopupWithImage } from '../scripts/components/PopupWithImage.js';
+import { PopupWithForm } from '../scripts/components/PopupWithForm.js';
+import {Api} from '../scripts/components/Api.js';
 
 import {
   inputName,
@@ -24,21 +22,18 @@ import {
   inputUrl,
   addContentBtn,
   editProfileBtn,
-  popupDelete,
-  popupAvatar,
+  popupDeleteImg,
+  popupAvatarUpdate,
   delBtn,
   avatarUpdateBtn
-} from './utils/constants.js'
+} from '../scripts/utils/constants.js'
 
 const api = new Api ({
   adress: 'https://mesto.nomoreparties.co/v1/cohort-35/',
   token: '3fdbcb9c-8f37-4908-83ea-7fa8f283a235'
 })
 
-
-// const cardsContainer = document.querySelector(".elements");
-
- const cardList = new Section ({
+const cardList = new Section ({
   renderer: (item) => {
     return createCard(item);
   },
@@ -60,36 +55,30 @@ bigImage.setEventListeners();
 
 const userInfo = new UserInfo({
   nameSelector: ".profile__name",
- jobSelector: ".profile__job"
+  jobSelector: ".profile__job"
 });
 
 const popupProfile = new PopupWithForm({popupSelector: popupEditProfile,
-  formProfileSubmitHandler: ({name, job}) => {
+  formSubmitHandler: ({name, job}) => {
     userInfo.setUserInfo({name, job});
+    api.updateUserInfo({name, job});
   }
 });
 popupProfile.setEventListeners();
 
 const popupAdd = new PopupWithForm({popupSelector: popupAddContent,
-  formPlaceSubmitHandler: ({name, link}) => {
+  formSubmitHandler: ({name, link}) => {
     const newCard = createCard({name: name, link: link});
-  cardList.prependItem(newCard)
-}
+    cardList.prependItem(newCard)
+    api.addCard({name, link});
+  }
 });
-popupAdd.setEventListeners();
-
-/*
-const popupDelete = new PopupWithForm({popupSelector: popupDeletePic,
-
-})
-*/
 
 function formProfileSubmitHandler(evt) {
   evt.preventDefault();
   userName.textContent = inputName.value;
   userJob.textContent = inputJob.value;
   popupProfile.close();
-  
 }
 
 function formPlaceSubmitHandler(evt) {
@@ -111,11 +100,8 @@ function createCard(object) {
   return card.getElement(); 
 } 
 
-
 editProfileBtn.addEventListener('click', () => {popupProfile.open()});
 addContentBtn.addEventListener('click', () => {popupAdd.open()})
-// delBtn.addEventListener('click', () => {popupDelete.open()})
-// avatarUpdateBtn.addEventListener('click', () => {popupAvatar.open()})
 
 formAdd.addEventListener('submit', formPlaceSubmitHandler);
 formEdit.addEventListener('submit', formProfileSubmitHandler);

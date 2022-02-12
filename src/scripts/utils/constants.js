@@ -18,9 +18,15 @@ const addContentBtn = document.querySelector(".profile__add-button");
 const editProfileBtn = document.querySelector(".profile__edit-button");
 
 const popupPic = document.querySelector('.popup_type_pic');
-const popupDelete = document.querySelector('.popup_type_pic-delete')
+const popupDelete = document.querySelector('.popup_type_pic-delete');
 
-export {popupImage, popupPicTitle,
+const popupAvatar = document.querySelector('.popup_type_avatar-update');
+
+const delBtn = document.querySelector('.element__trash')
+const avatarUpdateBtn = document.querySelector('.profile__avatar::before')
+
+export {popupImage,
+     popupPicTitle,
     inputName,
     inputJob,
     userName,
@@ -34,5 +40,8 @@ export {popupImage, popupPicTitle,
     addContentBtn,
     editProfileBtn,
     popupPic,
-    popupDelete
+    popupDelete,
+    popupAvatar,
+    delBtn,
+    avatarUpdateBtn
 }

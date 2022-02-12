@@ -3,14 +3,14 @@
     position: relative;
     width: 120px;
     height: 120px;
+    background-image: url('../../../images/avatar.svg');
 }
 
 .profile__avatar::before {
     content: '';
     position: absolute;
-    background-image: url('src\images\edit-pen.svg');
-    background: #2A2C2F;
-    opacity: 0.3;
+    background: rgba(0, 0, 0, 0.8);
+    opacity: 0;
     top: 0;
     bottom: 0;
     left: 0;
@@ -18,10 +18,16 @@
     margin-left: auto;
     margin-right: auto;
     transition: 1s;
+    background-position: center;
 }
 
 .profile__avatar:hover::before {
+    cursor: pointer;
     opacity: 0.8;
+    background-image: url('../../../images/edit-pen.svg');
+    background-size: 46px 46px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 @media screen and (min-width: 320px) {
