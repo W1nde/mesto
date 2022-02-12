@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
   <script type="module" src="./index.js" defer></script> 
-  <link rel="stylesheet" href="../styles/index.css"> 
+ <!-- <link rel="stylesheet" href="../styles/index.css"> -->
 </head>
 <body class="page">
   <header class="header">
-    <!--<img class="header__logo" src="<%=require("./images/header-logo.svg")%>" alt="Место">-->
-         <img class="header__logo" src="./images/header-logo.svg" alt="Место">
+    <img class="header__logo" src="<%=require("../images/header-logo.svg")%>" alt="Место">
+        <!--<img class="header__logo" src="./images/header-logo.svg" alt="Место">-->
   </header>
     <main class="main">  
       <section class="profile">
@@ -50,9 +50,9 @@
         <button class="popup__close" type="button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
         <form class="popup__form popup__form_type_edit" name="edit-form">
-          <input class="popup__input popup__input_type_name" id="name" name="name" type="text" value="Жак-Ив Кусто" placeholder="Имя" minlength="2" maxlength="40" required>
+          <input class="popup__input popup__input_type_name" id="name" name="name" type="text" value="" placeholder="Имя" minlength="2" maxlength="40" required>
           <span id="name-error" class="popup__span error"></span>
-          <input class="popup__input popup__input_type_job" id="job" name="job" type="text" value="Исследователь океана" placeholder="О себе" minlength="2" maxlength="200" required>
+          <input class="popup__input popup__input_type_job" id="job" name="job" type="text" value="" placeholder="О себе" minlength="2" maxlength="200" required>
           <span id="job-error" class="popup__span error"></span>
           <button class="popup__save" type="submit">Сохранить</button>
         </form>

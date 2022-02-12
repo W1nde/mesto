@@ -48,7 +48,7 @@ class Api {
     }
   
     updateUserInfo( {name, job} ) {
-      return fetch('https://mesto.nomoreparties.co/v1/cohort-35/users/me'), {
+      return fetch('https://mesto.nomoreparties.co/v1/cohort-35/users/me', {
         method: 'PATCH',
         headers: {
           authorization: this._token,
@@ -58,7 +58,7 @@ class Api {
           name,
           about: job
         })
-      }
+      })
     }
   }
 
