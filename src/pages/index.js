@@ -22,10 +22,6 @@ import {
   inputUrl,
   addContentBtn,
   editProfileBtn,
-  popupDeleteImg,
-  popupAvatarUpdate,
-  delBtn,
-  avatarUpdateBtn
 } from '../scripts/utils/constants.js'
 
 const api = new Api ({
