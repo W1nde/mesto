@@ -3,7 +3,7 @@
     position: relative;
     width: 120px;
     height: 120px;
-    background-image: url('../../../images/avatar.svg');
+    background-image: url('')
 }
 
 .profile__avatar::before {

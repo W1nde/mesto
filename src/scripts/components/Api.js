@@ -19,7 +19,7 @@ class Api {
       }).then(this._handleResponse);
     }
   
-    addCard({place, image}) {
+    addCard({name, link}) {
       return fetch(`${this._adress}/cards`, {
         method: 'POST',
         headers: {
@@ -27,10 +27,10 @@ class Api {
           'Content-type': 'application/json'
         },
         body: JSON.stringify({
-          name: place,
-          link: image
-        })
-      })
+          name: name,
+          link: link
+        }) 
+      }) .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`))
     }
   
     getUserInfo() {
@@ -58,7 +58,7 @@ class Api {
           name,
           about: job
         })
-      })
+      }) .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`))
     }
   }
 

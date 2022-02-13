@@ -5,7 +5,6 @@ class PopupWithForm extends Popup {
       super(popupSelector);
       this._formSubmitHandler = formSubmitHandler;
       this._form = this._popup.querySelector('.popup__form');
-      console.log(formSubmitHandler)
     }
   
     _getInputValues() {
@@ -20,10 +19,17 @@ class PopupWithForm extends Popup {
       return this._formValues;
     }
   
+    setInputValues(new_info) {
+      const name = document.querySelector('.popup__input_type_name');
+      const job = document.querySelector('.popup__input_type_job')
+      name.value = new_info.name;
+      job.value = new_info.about;
+
+    }
+
     _submitHandler = (evt) => {
       evt.preventDefault();
       this._formSubmitHandler(this._getInputValues());
-      this._form.reset();
     }
   
     setEventListeners() {
