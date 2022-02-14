@@ -7,6 +7,7 @@ import { Section } from '../scripts/components/Section.js';
 import { UserInfo } from '../scripts/components/UserInfo.js';
 import { PopupWithImage } from '../scripts/components/PopupWithImage.js';
 import { PopupWithForm } from '../scripts/components/PopupWithForm.js';
+import { popupWithConfirmation } from '../scripts/components/PopupWithConfirmation.js';
 import {Api} from '../scripts/components/Api.js';
 
 import {
@@ -16,6 +17,7 @@ import {
   userJob,
   popupEditProfile,
   popupAddContent,
+  popupDeleteCard,
   formEdit,
   formAdd,
   formAvatar,
@@ -44,12 +46,12 @@ const cardList = new Section ({
 Promise.all([api.getUserInfo(), api.getCards()])
  .then(([newUserInfo, cards]) => {
    userInfo.setUserInfo(newUserInfo);
+  
+   userInfo.setUserAvatar(newUserInfo.avatar);
    popupProfile.setInputValues(newUserInfo);
    cardList.renderItems(cards);
  })
-  .catch((err) =>
-  console.log(`${err}`)
-  );
+
 
 const bigImage = new PopupWithImage(popupPic);
 bigImage.setEventListeners();
@@ -70,9 +72,11 @@ popupProfile.setEventListeners();
 
 const popupAdd = new PopupWithForm({popupSelector: popupAddContent,
   formSubmitHandler: ({name, link}) => {
-    const newCard = createCard({name: name, link: link});
-    api.addCard({name, link});
-    cardList.prependItem(newCard)
+    api.addCard({name, link})
+    .then(card => {
+     const newCard = createCard(card);
+     cardList.prepend(newCard);
+   })
   }
 });
 popupAdd.setEventListeners();
@@ -80,13 +84,17 @@ popupAdd.setEventListeners();
 
 const popupAvatar = new PopupWithForm({popupSelector: popupAvatarUpdate,
   formSubmitHandler: ({avatar}) => {
+    
     userInfo.setUserAvatar({avatar});
-    api.updateUserInfo({avatar});
+    api.updateUserInfo(userInfo.getUserInfo());
   }
 });
 popupAvatar.setEventListeners();
 
-
+/*
+const popupDelete = new PopupWithConfirmation({popupSelector: popupDeleteCard,
+  formSubmitHandler:})
+*/
 
 function formProfileSubmitHandler(evt) {
   evt.preventDefault();
@@ -98,9 +106,14 @@ function formProfileSubmitHandler(evt) {
 function formAvatarSubmitHandler(evt) {
   const avatar = document.querySelector('.profile__avatar')
   evt.preventDefault();
-  avatar.style.backgroundImage = inputAvatarUrl.value;
+  avatar.style.backgroundImage = `url(${inputAvatarUrl.value})`;
   popupAvatar.close()
 }
+
+
+
+
+
 
 
 function formPlaceSubmitHandler(evt) {

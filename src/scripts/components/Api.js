@@ -47,7 +47,7 @@ class Api {
       })
     }
   
-    updateUserInfo( {name, job} ) {
+    updateUserInfo( {name, about, avatar} ) {
       return fetch('https://mesto.nomoreparties.co/v1/cohort-35/users/me', {
         method: 'PATCH',
         headers: {
@@ -55,8 +55,9 @@ class Api {
           'Content-type': 'application/json'
         },
         body: JSON.stringify({
+          avatar: avatar,
           name,
-          about: job
+          about: about
         })
       }) .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`))
     }

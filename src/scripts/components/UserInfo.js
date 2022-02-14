@@ -19,7 +19,8 @@ class UserInfo {
     }
 
     setUserAvatar(avatar) {
-        this._avatar.style.backgroundImage = avatar;
+        this._avatar.style.backgroundImage = `url(${avatar})`;
+        
     }
 }
 
