@@ -91,11 +91,6 @@ const popupAvatar = new PopupWithForm({popupSelector: popupAvatarUpdate,
 });
 popupAvatar.setEventListeners();
 
-/*
-const popupDelete = new PopupWithConfirmation({popupSelector: popupDeleteCard,
-  formSubmitHandler:})
-*/
-
 function formProfileSubmitHandler(evt) {
   evt.preventDefault();
   userName.textContent = inputName.value;
@@ -109,12 +104,6 @@ function formAvatarSubmitHandler(evt) {
   avatar.style.backgroundImage = `url(${inputAvatarUrl.value})`;
   popupAvatar.close()
 }
-
-
-
-
-
-
 
 function formPlaceSubmitHandler(evt) {
   evt.preventDefault();
