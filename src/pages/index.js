@@ -52,7 +52,6 @@ Promise.all([api.getUserInfo(), api.getCards()])
    cardList.renderItems(cards);
  })
 
-
 const bigImage = new PopupWithImage(popupPic);
 bigImage.setEventListeners();
 
@@ -86,7 +85,7 @@ const popupAvatar = new PopupWithForm({popupSelector: popupAvatarUpdate,
   formSubmitHandler: ({avatar}) => {
     
     userInfo.setUserAvatar({avatar});
-    api.updateUserInfo(userInfo.getUserInfo());
+    api.updateAvatarInfo(userInfo.getUserInfo());
   }
 });
 popupAvatar.setEventListeners();

@@ -47,7 +47,7 @@ class Api {
       })
     }
   
-    updateUserInfo( {name, about, avatar} ) {
+    updateUserInfo({name, about}) {
       return fetch('https://mesto.nomoreparties.co/v1/cohort-35/users/me', {
         method: 'PATCH',
         headers: {
@@ -55,9 +55,21 @@ class Api {
           'Content-type': 'application/json'
         },
         body: JSON.stringify({
-          avatar: avatar,
           name,
           about: about
+        })
+      }) .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`))
+    }
+
+    updateAvatarInfo({avatar}) {
+      return fetch('https://mesto.nomoreparties.co/v1/cohort-35/users/me/avatar', {
+        method: 'PATCH',
+        headers: {
+          authorization: this._token,
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+          avatar: avatar,
         })
       }) .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`))
     }
