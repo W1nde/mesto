@@ -84,7 +84,7 @@ popupAdd.setEventListeners();
 const popupAvatar = new PopupWithForm({popupSelector: popupAvatarUpdate,
   formSubmitHandler: ({avatar}) => {
     
-    userInfo.setUserAvatar({avatar});
+    userInfo.setUserAvatar(avatar);
     api.updateAvatarInfo(userInfo.getUserInfo());
   }
 });
