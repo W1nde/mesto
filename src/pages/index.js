@@ -63,9 +63,9 @@ const userInfo = new UserInfo({
 });
 
 const popupProfile = new PopupWithForm({popupSelector: popupEditProfile,
-  formSubmitHandler: ({name, job}) => {
-    userInfo.setUserInfo({name, job});
-    api.updateUserInfo({name, job});
+  formSubmitHandler: ({name, about}) => {
+    userInfo.setUserInfo({name, about});
+    api.updateUserInfo({name, about});
   }
 });
 popupProfile.setEventListeners();
