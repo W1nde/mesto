@@ -22,10 +22,8 @@ class PopupWithForm extends Popup {
     setInputValues(new_info) {
       const name = document.querySelector('.popup__input_type_name');
       const job = document.querySelector('.popup__input_type_job');
-      const avatar = document.querySelector('.popup__input_type_avatar-url');
       name.value = new_info.name;
       job.value = new_info.about;
-      avatar.value = new_info.avatar;
 
     }
 
@@ -41,11 +39,6 @@ class PopupWithForm extends Popup {
   
     close() {
       super.close(); 
-    }
-    
-    open() {
-      super.open();
-      this._form.reset()
     }
 }
 
