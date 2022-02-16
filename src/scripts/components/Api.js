@@ -73,6 +73,16 @@ class Api {
         })
       }) .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`))
     }
+
+    deleteCard(_id) {
+      return fetch(`${this._address}/cards/${_id}`, {
+        method: 'DELETE',
+        headers: {
+          authorization: this._token
+        }
+      })
+        .then(this._handleResponse)
+    }
   }
 
 export {Api}

@@ -1,10 +1,13 @@
 class Card {
-    constructor(cardObjects, cardSelector, handleCardClick) {
-        this.close
-        this._name = cardObjects.name;
-        this._link = cardObjects.link;
+    constructor(data, cardSelector, handleCardClick, handleDeleteBtnClick, userId) {
+        this._name = data.name;
+        this._link = data.link;
         this._cardSelector = cardSelector;
-        this.handleCardClick = handleCardClick
+        this.handleCardClick = handleCardClick;
+        this._handleDeleteBtnClick = handleDeleteBtnClick;
+        this._likes = data.likes || [];
+        this._id = data._id;
+        this._deletable = !(data.owner._id == userId);
     }
  
     getElement() {
@@ -14,13 +17,17 @@ class Card {
         cardPicture.src = this._link;
         cardPicture.alt = this._name;
         const delButton = this._element.querySelector('.element__trash');
-        
+        if (!this._deletable) {
+            delButton.style.display = 'block';
+            delButton.addEventListener('click', this._handleDeleteBtnClick);
+    }
         const likeButton = this._element.querySelector('.element__like-button');
         likeButton.addEventListener('click', this.handleLike);
         cardPicture.addEventListener('click', this.handleCardClick);
-        delButton.addEventListener('click', this.handleDelete);
+
         return this._element;
     } 
+    
     
     _getTemplate() {
         const cardElement = document
@@ -32,8 +39,13 @@ class Card {
         return cardElement;
     } 
     
-    handleDelete = () => {
+
+    deleteCard = () => {
         this._element.remove();
+    }
+
+    getId() {
+        return this._id
     }
 
     handleLike(event) {

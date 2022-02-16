@@ -7,7 +7,7 @@ import { Section } from '../scripts/components/Section.js';
 import { UserInfo } from '../scripts/components/UserInfo.js';
 import { PopupWithImage } from '../scripts/components/PopupWithImage.js';
 import { PopupWithForm } from '../scripts/components/PopupWithForm.js';
-import { popupWithConfirmation } from '../scripts/components/PopupWithConfirmation.js';
+import { PopupWithConfirmation } from '../scripts/components/PopupWithConfirmation.js';
 import {Api} from '../scripts/components/Api.js';
 
 import {
@@ -46,11 +46,12 @@ const cardList = new Section ({
 Promise.all([api.getUserInfo(), api.getCards()])
  .then(([newUserInfo, cards]) => {
    userInfo.setUserInfo(newUserInfo);
-  
+   userInfo.setUserId(newUserInfo._id);
    userInfo.setUserAvatar(newUserInfo.avatar);
    popupProfile.setInputValues(newUserInfo);
    cardList.renderItems(cards);
  })
+ // .catch((err) =>
 
 const bigImage = new PopupWithImage(popupPic);
 bigImage.setEventListeners();
@@ -72,9 +73,10 @@ popupProfile.setEventListeners();
 const popupAdd = new PopupWithForm({popupSelector: popupAddContent,
   formSubmitHandler: ({name, link}) => {
     api.addCard({name, link})
-    .then(card => {
+    .then((card) => {
      const newCard = createCard(card);
-     cardList.prepend(newCard);
+     
+     cardList.prependItem(newCard);
    })
   }
 });
@@ -83,12 +85,25 @@ popupAdd.setEventListeners();
 
 const popupAvatar = new PopupWithForm({popupSelector: popupAvatarUpdate,
   formSubmitHandler: ({avatar}) => {
-    
     userInfo.setUserAvatar(avatar);
     api.updateAvatarInfo(userInfo.getUserInfo());
   }
 });
 popupAvatar.setEventListeners();
+
+const popupDelete = new PopupWithConfirmation(document.querySelector('.popup_type_pic-delete'));
+function handleDeleteBtnClick(card) {
+  popupDelete.open();
+  popupDelete.setSubmitAction(() => {
+    api.deleteCard(card.getId())
+      .then(() => {
+        card.deleteCard();
+      })
+      .catch(err => console.log(`Карточка не удалилась ${err}`))
+  })
+}
+popupDelete.setEventListeners();
+
 
 function formProfileSubmitHandler(evt) {
   evt.preventDefault();
@@ -110,18 +125,19 @@ function formPlaceSubmitHandler(evt) {
     name: inputPic.value,
     link: inputUrl.value
   }
-  cardList.prependItem(createCard(data));
   popupAdd.close();
   formAdd.reset()
 }
 
 
-function createCard(object) { 
-  const card = new Card(object, '#cardTemplate', () => { 
-    bigImage.open(object.name, object.link) 
-  }); 
-  return card.getElement(); 
-} 
+function createCard(data) {
+  const card = new Card(data, '#cardTemplate', () => { 
+    bigImage.open(data.name, data.link)},
+     () => {handleDeleteBtnClick(card)}, userInfo.getUserId());
+  const cardElement = card.getElement();
+
+  return cardElement
+}
 
 editProfileBtn.addEventListener('click', () => {popupProfile.open()});
 addContentBtn.addEventListener('click', () => {popupAdd.open()})

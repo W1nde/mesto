@@ -23,6 +23,14 @@ class UserInfo {
         this._avatarUrl = avatar;
         
     }
+
+    setUserId(id) {
+        this._id = id;
+    }
+
+    getUserId(){
+        return this._id;
+    }
 }
 
 export {UserInfo}
