@@ -75,7 +75,7 @@ class Api {
     }
 
     deleteCard(_id) {
-      return fetch(`${this._address}/cards/${_id}`, {
+      return fetch(`https://mesto.nomoreparties.co/v1/cohort-35/cards/${_id}`, {
         method: 'DELETE',
         headers: {
           authorization: this._token
@@ -83,6 +83,20 @@ class Api {
       })
         .then(this._handleResponse)
     }
+    like(_id, methodType) {
+      return fetch(`https://mesto.nomoreparties.co/v1/cohort-35/cards/${_id}/likes`, {
+        method: methodType,
+        headers: {
+          authorization: this._token
+        }
+      })
+        .then(this._handleResponse)
+    }
+
   }
 
 export {Api}
+
+
+
+

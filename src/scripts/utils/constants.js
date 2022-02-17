@@ -22,7 +22,6 @@ const addContentBtn = document.querySelector(".profile__add-button");
 const editProfileBtn = document.querySelector(".profile__edit-button");
 
 const popupPic = document.querySelector('.popup_type_pic');
-const popupDeleteCard = document.querySelector('.popup_type_pic-delete');
 
 const delBtn = document.querySelector('.element__trash');
 const avatarUpdateBtn = document.querySelector('.profile__avatar');
@@ -42,7 +41,6 @@ export {popupImage,
     addContentBtn,
     editProfileBtn,
     popupPic,
-    popupDeleteCard,
     popupAvatarUpdate,
     delBtn,
     avatarUpdateBtn,

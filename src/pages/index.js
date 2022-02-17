@@ -17,7 +17,6 @@ import {
   userJob,
   popupEditProfile,
   popupAddContent,
-  popupDeleteCard,
   formEdit,
   formAdd,
   formAvatar,
@@ -109,6 +108,7 @@ function formProfileSubmitHandler(evt) {
   evt.preventDefault();
   userName.textContent = inputName.value;
   userJob.textContent = inputJob.value;
+  renderLoading(true)
   popupProfile.close();
 }
 
@@ -116,15 +116,13 @@ function formAvatarSubmitHandler(evt) {
   const avatar = document.querySelector('.profile__avatar')
   evt.preventDefault();
   avatar.style.backgroundImage = `url(${inputAvatarUrl.value})`;
+  renderLoading(true)
   popupAvatar.close()
 }
 
 function formPlaceSubmitHandler(evt) {
   evt.preventDefault();
-  const data = {
-    name: inputPic.value,
-    link: inputUrl.value
-  }
+  renderLoading(true)
   popupAdd.close();
   formAdd.reset()
 }
@@ -133,15 +131,26 @@ function formPlaceSubmitHandler(evt) {
 function createCard(data) {
   const card = new Card(data, '#cardTemplate', () => { 
     bigImage.open(data.name, data.link)},
-     () => {handleDeleteBtnClick(card)}, userInfo.getUserId());
+     () => {handleDeleteBtnClick(card)}, api.like ,userInfo.getUserId());
   const cardElement = card.getElement();
 
   return cardElement
 }
 
-editProfileBtn.addEventListener('click', () => {popupProfile.open()});
-addContentBtn.addEventListener('click', () => {popupAdd.open()})
-avatarUpdateBtn.addEventListener('click', () => {popupAvatar.open()})
+function renderLoading(isLoading){
+  const buttonSelector = document.querySelectorAll('.popup__save')
+  buttonSelector.forEach(element => {
+  if(isLoading){
+    element.value = 'Сохранение...'
+  } else {
+    element.value = 'Сохранить'    
+  }
+})
+}
+
+editProfileBtn.addEventListener('click', () => {renderLoading(false); popupProfile.open()});
+addContentBtn.addEventListener('click', () => {renderLoading(false); popupAdd.open()})
+avatarUpdateBtn.addEventListener('click', () => {renderLoading(false); popupAvatar.open()})
 
 
 formAdd.addEventListener('submit', formPlaceSubmitHandler);
