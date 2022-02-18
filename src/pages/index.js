@@ -122,7 +122,6 @@ function formAvatarSubmitHandler(evt) {
   const avatar = document.querySelector('.profile__avatar')
   evt.preventDefault();
   avatar.style.backgroundImage = `url(${inputAvatarUrl.value})`;
-  // inputAvatarUrl.value = "";
   popupAvatar.close()
 }
 
@@ -147,7 +146,7 @@ function createCard(data) {
   return cardElement
 }
 
-editProfileBtn.addEventListener('click', () => {popupProfile.open()});
+editProfileBtn.addEventListener('click', () => {popupProfile.open(); popupProfile.setInputValues(userInfo.getUserInfo())});
 addContentBtn.addEventListener('click', () => {popupAdd.open()})
 avatarUpdateBtn.addEventListener('click', () => {popupAvatar.open()})
 

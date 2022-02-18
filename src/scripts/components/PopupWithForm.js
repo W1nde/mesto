@@ -42,7 +42,6 @@ class PopupWithForm extends Popup {
     close(){
       super.close();
       this._form.reset()
-      console.log('Я - ПОПАП С ФОРМОЙ')
     }
     
 
