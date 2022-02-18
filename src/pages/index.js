@@ -1,4 +1,4 @@
-// import '../styles/index.css';
+import '../styles/index.css';
 
 import { Card } from '../scripts/components/Card.js'
 import { FormValidator } from '../scripts/components/FormValidator.js';
@@ -49,8 +49,7 @@ Promise.all([api.getUserInfo(), api.getCards()])
    userInfo.setUserAvatar(newUserInfo.avatar);
    popupProfile.setInputValues(newUserInfo);
    cardList.renderItems(cards);
- })
- // .catch((err) =>
+})
 
 const bigImage = new PopupWithImage(popupPic);
 bigImage.setEventListeners();
