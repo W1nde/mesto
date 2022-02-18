@@ -6,7 +6,6 @@ class Card {
         this.handleCardClick = handleCardClick;
         this._handleDeleteBtnClick = handleDeleteBtnClick;
         this._likes = data.likes || [];
-        console.log(this._likes.length)
         this._id = data._id;
         this._deletable = !(data.owner._id == userId);
         this._handleLikeBtnClick = handleLikeBtnClick;
@@ -62,13 +61,17 @@ class Card {
         const eventTarget = event.target;
         
         eventTarget.classList.toggle('element__like-button_active');
-        console.log(this._likeButton);
         if(eventTarget.classList.contains('element__like-button_active')){
             this._handleLikeBtnClick(this._id, 'PUT')
         }
         else{
             this._handleLikeBtnClick(this._id, 'DELETE')
         }
+    }
+
+    updateLikes = (likes) => {
+        this._likeCounter.textContent = likes.length;
+        this._likes = likes
     }
 }
 
