@@ -14,8 +14,6 @@ const formEdit = document.querySelector('.popup__form_type_edit');
 const formAdd = document.querySelector('.popup__form_type_add');
 const formAvatar = document.querySelector('.popup__form_type_avatar-update');
 
-const inputPic = document.querySelector('.popup__input_type_pic-name');
-const inputUrl = document.querySelector('.popup__input_type_url');
 const inputAvatarUrl = document.querySelector('.popup__input_type_avatar-url');
 
 const addContentBtn = document.querySelector(".profile__add-button");
@@ -36,8 +34,6 @@ export {popupImage,
     popupAddContent,
     formEdit,
     formAdd,
-    inputPic,
-    inputUrl,
     addContentBtn,
     editProfileBtn,
     popupPic,

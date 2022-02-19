@@ -61,6 +61,16 @@ class FormValidator {
 			this.setInputListeners(rest);
 
 	}
+
+	setDefaultForm(clearInput = true) {
+		this._inputList.forEach((input) => {
+			this.hideError(input);
+			if (clearInput) {
+				input.value = "";
+			}
+		});
+		this.toggleButtonError();
+	}
 }
 
 export {FormValidator};

@@ -22,7 +22,7 @@ class Card {
         cardPicture.alt = this._name;
         const delButton = this._element.querySelector('.element__trash');
         if (!this._deletable) {
-            delButton.style.display = 'block';
+            delButton.classList.add('element__trash_visible');
             delButton.addEventListener('click', this._handleDeleteBtnClick);
     }   
         this._likeButton = this._element.querySelector('.element__like-button');
